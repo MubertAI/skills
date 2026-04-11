@@ -1,0 +1,27 @@
+{
+  "skill_name": "mubert-generate",
+  "triggers": [
+    { "prompt": "generate a 30 second chill track", "should_trigger": true },
+    { "prompt": "create music from a text prompt using Mubert", "should_trigger": true },
+    { "prompt": "make a looping jingle for my app", "should_trigger": true },
+    { "prompt": "generate a track from an image", "should_trigger": true },
+    { "prompt": "create an energetic workout track in WAV format", "should_trigger": true },
+    { "prompt": "remove drums and vocals from track abc-123", "should_trigger": true },
+    { "prompt": "replace the bass in my Mubert track", "should_trigger": true },
+    { "prompt": "generate a similar track to the one I just made", "should_trigger": true },
+    { "prompt": "edit the instruments in my track", "should_trigger": true },
+    { "prompt": "create a 60 second lo-fi beat at 320kbps", "should_trigger": true },
+    { "prompt": "generate royalty-free background music for a video", "should_trigger": true },
+    { "prompt": "make me an AI music track for my podcast intro", "should_trigger": true },
+    { "prompt": "stream live music in my fitness app", "should_trigger": false },
+    { "prompt": "get a streaming link for playlist P001", "should_trigger": false },
+    { "prompt": "change the stream intensity to low", "should_trigger": false },
+    { "prompt": "search for electronic tracks in the music library", "should_trigger": false },
+    { "prompt": "what genres are available in the Mubert library", "should_trigger": false },
+    { "prompt": "list my Mubert customers", "should_trigger": false },
+    { "prompt": "create a new customer for my app", "should_trigger": false },
+    { "prompt": "set up a webhook on my Mubert license", "should_trigger": false },
+    { "prompt": "browse tracks by BPM and genre", "should_trigger": false },
+    { "prompt": "find ambient music under 30 seconds", "should_trigger": false }
+  ]
+}

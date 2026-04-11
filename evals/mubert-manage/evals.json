@@ -1,0 +1,91 @@
+{
+  "skill_name": "mubert-manage",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a new customer with custom ID 'my-app-user-42'",
+      "expected_output": "Code that POSTs to /service/customers with custom_id='my-app-user-42' and company-level auth headers",
+      "assertions": [
+        "The code sends a POST request to /api/v3/service/customers",
+        "The request body includes 'custom_id' set to 'my-app-user-42'",
+        "The request includes 'company-id' and 'license-token' headers",
+        "The code extracts access.id (customer-id) and access.token (access-token) from the response"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "List all my Mubert customers",
+      "expected_output": "Code that GETs /service/customers with company-level auth headers",
+      "assertions": [
+        "The code sends a GET request to /api/v3/service/customers",
+        "The request includes 'company-id' and 'license-token' headers",
+        "The code handles pagination parameters (limit/offset) or displays results"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Get the customer with custom ID 'user-abc'",
+      "expected_output": "Code that GETs /service/customers/custom-id/user-abc with company-level auth headers",
+      "assertions": [
+        "The code sends a GET request to /api/v3/service/customers/custom-id/user-abc",
+        "The request includes 'company-id' and 'license-token' headers",
+        "The code parses the customer model from the response"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Delete customer with ID cust-123",
+      "expected_output": "Code that sends DELETE to /service/customers/cust-123 with company-level auth headers",
+      "assertions": [
+        "The code sends a DELETE request to /api/v3/service/customers/cust-123",
+        "The request includes 'company-id' and 'license-token' headers",
+        "The code checks for 204 No Content response"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "List all my Mubert licenses",
+      "expected_output": "Code that GETs /service/licenses with company-level auth headers",
+      "assertions": [
+        "The code sends a GET request to /api/v3/service/licenses",
+        "The request includes 'company-id' and 'license-token' headers",
+        "The code displays license information from the response"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Set up a webhook on license lic-456 to receive notifications at https://my-server.com/mubert-webhook",
+      "expected_output": "Code that PUTs /service/licenses/lic-456 with webhook_url and webhook_enabled=true",
+      "assertions": [
+        "The code sends a PUT request to /api/v3/service/licenses/lic-456",
+        "The request body includes 'webhook_url' set to 'https://my-server.com/mubert-webhook'",
+        "The request body includes 'webhook_enabled' set to true",
+        "The request includes 'company-id' and 'license-token' headers"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Write a TypeScript script that creates a customer and then generates a track using the returned credentials",
+      "expected_output": "TypeScript code that first POSTs to /service/customers, extracts access.id and access.token, then POSTs to /public/tracks using those credentials",
+      "assertions": [
+        "The code is written in TypeScript",
+        "The code first creates a customer via POST /api/v3/service/customers",
+        "The code extracts customer-id and access-token from the create response",
+        "The code then uses those credentials to call POST /api/v3/public/tracks",
+        "The service call uses company-id + license-token headers",
+        "The track generation call uses customer-id + access-token headers"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "I need to set up Mubert for my app — create a customer and give me the credentials to generate music",
+      "expected_output": "Code that creates a customer via service API and clearly outputs the customer-id and access-token for use with generate/streaming skills",
+      "assertions": [
+        "The code creates a customer via POST /api/v3/service/customers",
+        "The response parsing clearly identifies access.id as customer-id",
+        "The response parsing clearly identifies access.token as access-token",
+        "The output explains these credentials are used for track generation and streaming"
+      ]
+    }
+  ]
+}

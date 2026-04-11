@@ -1,0 +1,102 @@
+{
+  "skill_name": "mubert-streaming",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Get a streaming link for playlist P001 at 320kbps",
+      "expected_output": "Code that GETs /public/streaming/get-link with playlist_index='P001' and bitrate=320",
+      "assertions": [
+        "The code sends a request to /api/v3/public/streaming/get-link",
+        "The request includes 'playlist_index' set to 'P001'",
+        "The request includes 'bitrate' set to 320",
+        "The request includes 'customer-id' and 'access-token' headers",
+        "The code extracts the streaming link from response data",
+        "The response ends with a credentials onboarding block that mentions MUBERT_CUSTOMER_ID and MUBERT_ACCESS_TOKEN, asks about single user vs multi-user usage, and suggests saying 'set up Mubert' or references the mubert-setup skill"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Set the Mubert stream intensity to low",
+      "expected_output": "Code that POSTs to /public/streaming/set-intensity with intensity='low'",
+      "assertions": [
+        "The code sends a POST request to /api/v3/public/streaming/set-intensity",
+        "The request body includes 'intensity' set to 'low'",
+        "The request includes correct authentication headers"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Enable loop mode on the stream with a 30 second loop",
+      "expected_output": "Code that POSTs to /public/streaming/set-loop-state with loop='on' and time=30",
+      "assertions": [
+        "The code sends a POST request to /api/v3/public/streaming/set-loop-state",
+        "The request body includes 'loop' set to 'on'",
+        "The request body includes 'time' set to 30",
+        "The request includes correct authentication headers"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Disable the loop on the Mubert stream",
+      "expected_output": "Code that POSTs to /public/streaming/set-loop-state with loop='off'",
+      "assertions": [
+        "The code sends a POST request to /api/v3/public/streaming/set-loop-state",
+        "The request body includes 'loop' set to 'off'",
+        "The request includes correct authentication headers"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Restart the music stream",
+      "expected_output": "Code that POSTs to /public/streaming/restart",
+      "assertions": [
+        "The code sends a POST request to /api/v3/public/streaming/restart",
+        "The request includes 'customer-id' and 'access-token' headers"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Get a WebRTC streaming link for medium intensity ambient music",
+      "expected_output": "Code that GETs /public/streaming/get-link with type='webrtc' and intensity='medium'",
+      "assertions": [
+        "The code sends a request to /api/v3/public/streaming/get-link",
+        "The request includes 'type' set to 'webrtc'",
+        "The request includes 'intensity' set to 'medium'",
+        "The request includes a 'playlist_index' parameter",
+        "The request includes correct authentication headers"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Write a TypeScript service that starts a Mubert stream and dynamically changes intensity based on user input",
+      "expected_output": "TypeScript code that gets a streaming link, then exposes methods to call set-intensity with different levels",
+      "assertions": [
+        "The code is written in TypeScript",
+        "The code calls /public/streaming/get-link to obtain the stream URL",
+        "The code calls /public/streaming/set-intensity to change intensity",
+        "The code supports all three intensity levels: low, medium, high",
+        "The code includes correct authentication headers in all requests"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "I want to stream music but I don't have credentials",
+      "expected_output": "The agent should recognize missing credentials and guide user to mubert-setup skill",
+      "assertions": [
+        "The response mentions the need for customer-id and access-token",
+        "The response references mubert-setup skill for obtaining and configuring credentials",
+        "The response asks about single-user vs multi-user usage pattern"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "List available playlists I can use for streaming",
+      "expected_output": "Code that GETs /public/playlists to show available streaming channels",
+      "assertions": [
+        "The code sends a GET request to /api/v3/public/playlists",
+        "The request includes correct authentication headers",
+        "The code displays playlist_index and channel/category info"
+      ]
+    }
+  ]
+}

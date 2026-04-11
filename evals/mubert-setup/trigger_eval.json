@@ -1,0 +1,26 @@
+{
+  "skill_name": "mubert-setup",
+  "triggers": [
+    { "prompt": "set up Mubert API credentials", "should_trigger": true },
+    { "prompt": "I just signed up at mubert.com/api", "should_trigger": true },
+    { "prompt": "configure my Mubert API key", "should_trigger": true },
+    { "prompt": "save my Mubert credentials to .env", "should_trigger": true },
+    { "prompt": "I don't have Mubert credentials", "should_trigger": true },
+    { "prompt": "how do I get a Mubert API key", "should_trigger": true },
+    { "prompt": "my Mubert API key isn't working", "should_trigger": true },
+    { "prompt": "validate my Mubert credentials", "should_trigger": true },
+    { "prompt": "help me configure Mubert for my app", "should_trigger": true },
+    { "prompt": "where do I get customer-id and access-token for Mubert", "should_trigger": true },
+    { "prompt": "I need to set up API access for Mubert music", "should_trigger": true },
+    { "prompt": "check if my Mubert API is configured", "should_trigger": true },
+    { "prompt": "generate a 30 second track using Mubert", "should_trigger": false },
+    { "prompt": "create a lo-fi beat", "should_trigger": false },
+    { "prompt": "stream live music in my app", "should_trigger": false },
+    { "prompt": "get a streaming link for playlist P001", "should_trigger": false },
+    { "prompt": "search for electronic tracks in the library", "should_trigger": false },
+    { "prompt": "list available Mubert playlists", "should_trigger": false },
+    { "prompt": "list my Mubert customers", "should_trigger": false },
+    { "prompt": "delete customer abc-123", "should_trigger": false },
+    { "prompt": "remove drums from my track", "should_trigger": false }
+  ]
+}

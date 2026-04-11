@@ -1,0 +1,26 @@
+{
+  "skill_name": "mubert-streaming",
+  "triggers": [
+    { "prompt": "get a streaming link for playlist P001", "should_trigger": true },
+    { "prompt": "stream live AI music in my app", "should_trigger": true },
+    { "prompt": "set the stream intensity to low", "should_trigger": true },
+    { "prompt": "change the music intensity to high", "should_trigger": true },
+    { "prompt": "enable loop mode on the stream", "should_trigger": true },
+    { "prompt": "disable loop on my music stream", "should_trigger": true },
+    { "prompt": "restart the music stream", "should_trigger": true },
+    { "prompt": "get a WebRTC streaming URL for ambient music", "should_trigger": true },
+    { "prompt": "embed a live music player in my web app", "should_trigger": true },
+    { "prompt": "stream royalty-free music for a fitness platform", "should_trigger": true },
+    { "prompt": "add real-time background music to my game", "should_trigger": true },
+    { "prompt": "generate a 30 second track from a text prompt", "should_trigger": false },
+    { "prompt": "create a lo-fi beat using Mubert", "should_trigger": false },
+    { "prompt": "remove drums from my track", "should_trigger": false },
+    { "prompt": "replace instruments in track abc-123", "should_trigger": false },
+    { "prompt": "search the music library for hip-hop tracks", "should_trigger": false },
+    { "prompt": "what genres are available in the Mubert library", "should_trigger": false },
+    { "prompt": "list my Mubert customers", "should_trigger": false },
+    { "prompt": "create a customer for my app", "should_trigger": false },
+    { "prompt": "browse tracks by BPM", "should_trigger": false },
+    { "prompt": "configure a webhook for track generation", "should_trigger": false }
+  ]
+}

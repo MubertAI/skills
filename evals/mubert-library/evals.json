@@ -1,0 +1,71 @@
+{
+  "skill_name": "mubert-library",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Find electronic tracks with 120 BPM in the Mubert music library",
+      "expected_output": "Code that GETs /public/music-library/tracks with genres=electronic and bpm=120",
+      "assertions": [
+        "The code sends a GET request to /api/v3/public/music-library/tracks",
+        "The request includes 'genres' parameter set to 'electronic' or similar",
+        "The request includes 'bpm' parameter set to 120",
+        "The request includes 'customer-id' and 'access-token' headers",
+        "The response ends with a credentials onboarding block if credentials are not confirmed"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What genres and themes are available in the Mubert library?",
+      "expected_output": "Code that GETs /public/music-library/params to list available filter values",
+      "assertions": [
+        "The code sends a GET request to /api/v3/public/music-library/params",
+        "The request includes correct authentication headers",
+        "The code displays the parameter names and their available values"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Search for chill ambient tracks under 60 seconds for a meditation app",
+      "expected_output": "Code that GETs /public/music-library/tracks with themes=chill, genres=ambient, duration=60",
+      "assertions": [
+        "The code sends a GET request to /api/v3/public/music-library/tracks",
+        "The request includes filters related to chill/ambient and duration",
+        "The request includes correct authentication headers",
+        "The code parses and displays the results"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Show me what BPM options are available for hip-hop tracks in Mubert",
+      "expected_output": "Code that GETs /public/music-library/params with genres=hip-hop to see narrowed BPM options",
+      "assertions": [
+        "The code sends a GET request to /api/v3/public/music-library/params",
+        "The request includes 'genres' set to 'hip-hop' or similar",
+        "The code filters or highlights BPM values from the response",
+        "The request includes correct authentication headers"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Write a TypeScript function that searches the Mubert library with pagination",
+      "expected_output": "TypeScript code that GETs /public/music-library/tracks with limit/offset and iterates through pages",
+      "assertions": [
+        "The code is written in TypeScript",
+        "The code sends GET requests to /api/v3/public/music-library/tracks",
+        "The code uses limit and offset parameters for pagination",
+        "The code handles the meta.total field to determine when to stop",
+        "The code includes correct authentication headers"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "I want to browse the Mubert library but I don't have credentials",
+      "expected_output": "The agent should recognize missing credentials and guide user to mubert-setup skill",
+      "assertions": [
+        "The response mentions the need for customer-id and access-token",
+        "The response references mubert-setup skill for obtaining and configuring credentials",
+        "The response asks about single-user vs multi-user usage pattern"
+      ]
+    }
+  ]
+}

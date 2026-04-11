@@ -1,0 +1,72 @@
+{
+  "skill_name": "mubert-setup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I just signed up at mubert.com/api, help me set up my credentials",
+      "expected_output": "The agent asks for company-id and license-token, then asks about single-user vs multi-user usage",
+      "assertions": [
+        "The response asks the user for their company-id and license-token",
+        "The response mentions mubert.com/api as the source for credentials",
+        "The response asks whether the user needs single-user or multi-user setup"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Set up Mubert API for my personal project. My company-id is abc-123 and license-token is xyz-456",
+      "expected_output": "The agent validates credentials, creates a customer, and saves everything to .env",
+      "assertions": [
+        "The code validates service credentials by calling GET /service/licenses",
+        "The code creates a customer via POST /service/customers",
+        "The code extracts customer-id and access-token from the response",
+        "The code writes all 4 credentials to .env file",
+        "The response mentions that generated music is royalty-free"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to set up Mubert for a multi-user app with thousands of users",
+      "expected_output": "The agent asks for service credentials and then generates a customer provisioning module",
+      "assertions": [
+        "The response asks for company-id and license-token",
+        "The code generates a provisioning module/function that creates customers dynamically",
+        "The provisioning code calls POST /service/customers with a user identifier",
+        "The provisioning code handles existing customers via GET /service/customers/custom-id/{id}",
+        "Only MUBERT_COMPANY_ID and MUBERT_LICENSE_TOKEN are saved to .env (not customer credentials)"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Check if my Mubert API is already configured",
+      "expected_output": "The agent checks environment variables and .env file for existing credentials and validates them",
+      "assertions": [
+        "The code checks for MUBERT_COMPANY_ID, MUBERT_LICENSE_TOKEN, MUBERT_CUSTOMER_ID, MUBERT_ACCESS_TOKEN",
+        "The code checks .env file in the project root",
+        "If found, the code validates by calling the Mubert API",
+        "The response clearly states whether credentials are valid or not"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "My Mubert credentials aren't working, can you help?",
+      "expected_output": "The agent validates the existing credentials and reports which ones are invalid",
+      "assertions": [
+        "The code reads existing credentials from environment or .env",
+        "The code validates service credentials via GET /service/licenses",
+        "The code validates customer credentials via GET /public/playlists",
+        "The response clearly indicates which credentials failed and suggests re-checking at mubert.com/api"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Save my Mubert API key to .env",
+      "expected_output": "The agent asks for the credentials and saves them to .env with proper formatting",
+      "assertions": [
+        "The response asks which credentials the user wants to save",
+        "The code writes credentials to .env file",
+        "The .env format includes comments explaining each variable",
+        "The response mentions checking .gitignore for .env"
+      ]
+    }
+  ]
+}

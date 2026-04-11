@@ -1,0 +1,26 @@
+{
+  "skill_name": "mubert-library",
+  "triggers": [
+    { "prompt": "search for electronic tracks in the Mubert library", "should_trigger": true },
+    { "prompt": "find ambient music under 60 seconds", "should_trigger": true },
+    { "prompt": "what genres are available in the Mubert music library", "should_trigger": true },
+    { "prompt": "browse tracks by BPM and genre", "should_trigger": true },
+    { "prompt": "list available Mubert playlists", "should_trigger": false },
+    { "prompt": "show me chill tracks for a meditation app", "should_trigger": true },
+    { "prompt": "what BPM options are available for hip-hop", "should_trigger": true },
+    { "prompt": "filter Mubert library by workout activity", "should_trigger": true },
+    { "prompt": "how many tracks are in the electronic genre", "should_trigger": true },
+    { "prompt": "find royalty-free tracks with 120 BPM", "should_trigger": true },
+    { "prompt": "what themes and moods can I filter by", "should_trigger": true },
+    { "prompt": "generate a 30 second track from a text prompt", "should_trigger": false },
+    { "prompt": "create a lo-fi beat using Mubert", "should_trigger": false },
+    { "prompt": "remove drums from my track", "should_trigger": false },
+    { "prompt": "stream live music in my app", "should_trigger": false },
+    { "prompt": "get a streaming link", "should_trigger": false },
+    { "prompt": "change the stream intensity", "should_trigger": false },
+    { "prompt": "create a new customer for my app", "should_trigger": false },
+    { "prompt": "list my Mubert licenses", "should_trigger": false },
+    { "prompt": "set up a webhook on my license", "should_trigger": false },
+    { "prompt": "generate a track from an image", "should_trigger": false }
+  ]
+}
