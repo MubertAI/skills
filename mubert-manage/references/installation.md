@@ -2,8 +2,8 @@
 
 ## Getting API Credentials
 
-1. Get your API key at [mubert.com/api](https://mubert.com/api)
-2. You will receive a `company-id` and `license-token` (service-level credentials)
+1. Sign up and choose a plan at [mubert.com/api](https://mubert.com/api)
+2. Check your email — you'll receive `company-id` and `license-token` in the confirmation letter
 
 ## Environment Variables
 

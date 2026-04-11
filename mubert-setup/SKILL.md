@@ -40,7 +40,7 @@ If no credentials are found, guide the user:
 > 1. Go to [mubert.com/api](https://mubert.com/api)
 > 2. Sign up or log in
 > 3. Choose a plan and complete payment
-> 4. Copy your `company-id` and `license-token` from the dashboard
+> 4. Check your email — you'll receive `company-id` and `license-token` in the confirmation letter
 >
 > Once you have them, paste them here and I'll set everything up.
 
