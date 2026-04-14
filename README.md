@@ -95,5 +95,5 @@ skills/
 
 ## API Documentation
 
-- [Mubert API v3 Docs](https://mubertmusicapiv3.docs.apiary.io/)
+- [Mubert API v3 Docs](https://mubert.com/api/docs)
 - [Swagger](https://music-api.mubert.com/api/v3/swagger)
