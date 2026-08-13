@@ -79,10 +79,13 @@ RESET = "\033[0m"
 # --- Claude Code CLI ---
 
 
-def claude_run(prompt: str, *, skill_path: str | None = None, timeout: int = 180) -> dict:
+def claude_run(prompt: str, *, skill_path: str | None = None, timeout: int = 600) -> dict:
     """
     Run a prompt through Claude Code CLI.
     If skill_path is None, runs with --disable-slash-commands (no skills = baseline).
+
+    A prompt that runs long is one failed eval, never a failed run: the timeout
+    is caught and reported as a result so the remaining evals still execute.
     """
     cmd = [
         "claude", "-p",
@@ -96,13 +99,22 @@ def claude_run(prompt: str, *, skill_path: str | None = None, timeout: int = 180
     cmd.append(prompt)
 
     start = time.time()
-    result = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True,
-        cwd=str(SKILLS_ROOT),
-        timeout=timeout,
-    )
+    try:
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            cwd=str(SKILLS_ROOT),
+            timeout=timeout,
+        )
+    except subprocess.TimeoutExpired:
+        duration_ms = int((time.time() - start) * 1000)
+        print(f"    {RED}TIMEOUT{RESET} after {timeout}s: \"{prompt[:60]}\"")
+        return {
+            "text": f"[TIMEOUT] no response within {timeout}s",
+            "duration_ms": duration_ms,
+            "total_tokens": 0,
+        }
     duration_ms = int((time.time() - start) * 1000)
 
     if result.returncode != 0:

@@ -5,7 +5,7 @@
     { "prompt": "find ambient music under 60 seconds", "should_trigger": true },
     { "prompt": "what genres are available in the Mubert music library", "should_trigger": true },
     { "prompt": "browse tracks by BPM and genre", "should_trigger": true },
-    { "prompt": "list available Mubert playlists", "should_trigger": false },
+    { "prompt": "which library tracks are in playlist 0.0.0", "should_trigger": true },
     { "prompt": "show me chill tracks for a meditation app", "should_trigger": true },
     { "prompt": "what BPM options are available for hip-hop", "should_trigger": true },
     { "prompt": "filter Mubert library by workout activity", "should_trigger": true },

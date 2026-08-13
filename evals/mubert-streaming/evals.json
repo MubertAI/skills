@@ -3,12 +3,13 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Get a streaming link for playlist P001 at 320kbps",
-      "expected_output": "Code that GETs /public/streaming/get-link with playlist_index='P001' and bitrate=320",
+      "prompt": "Get a streaming link for playlist 6.1.1 at 320kbps",
+      "expected_output": "Code that GETs /public/streaming/get-link with playlist_index='6.1.1' and bitrate=320, passing them as query parameters",
       "assertions": [
         "The code sends a request to /api/v3/public/streaming/get-link",
-        "The request includes 'playlist_index' set to 'P001'",
+        "The request includes 'playlist_index' set to '6.1.1'",
         "The request includes 'bitrate' set to 320",
+        "The parameters are sent as query-string parameters on the GET request (e.g. requests params=, URLSearchParams, or curl -G), never as a JSON request body",
         "The request includes 'customer-id' and 'access-token' headers",
         "The code extracts the streaming link from response data",
         "The response ends with a credentials onboarding block that mentions MUBERT_CUSTOMER_ID and MUBERT_ACCESS_TOKEN, asks about single user vs multi-user usage, and suggests saying 'set up Mubert' or references the mubert-setup skill"

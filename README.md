@@ -46,10 +46,15 @@ cp .env.example .env
 
 | Variable | Required by | Description |
 |----------|-------------|-------------|
-| `MUBERT_COMPANY_ID` | manage, setup | Company identifier (service-level) |
+| `MUBERT_COMPANY_ID` | manage, setup (also generate/streaming when minting a customer) | Company identifier (service-level) |
 | `MUBERT_LICENSE_TOKEN` | manage, setup | License token (service-level) |
-| `MUBERT_CUSTOMER_ID` | generate, streaming, library | Customer identifier (public-level) |
-| `MUBERT_ACCESS_TOKEN` | generate, streaming, library | Access token (public-level) |
+| `MUBERT_CUSTOMER_ID` | generate, streaming, library | Customer identifier (public-level) — `data.id` from `POST /service/customers` |
+| `MUBERT_ACCESS_TOKEN` | generate, streaming, library | Access token (public-level) — `data.access.token` from the same response |
+| `MUBERT_NAMESPACE` | multi-user setups | Prefix scoping per-user `custom_id`s to one app **and** environment |
+
+The signup email contains only the two service-level values. The public-level pair exists only after a customer is created via the service API — service credentials are rejected by public endpoints.
+
+In a multi-user app the public-level pair is minted per user at runtime and belongs in your database, not in `.env` — a shared `MUBERT_CUSTOMER_ID` means every user draws on one customer and one usage counter. `MUBERT_NAMESPACE` keeps staging from colliding with production: `custom_id` is unique per company and creation is find-or-create, so two deployments that derive the same `custom_id` silently share one customer and one token.
 
 ## All Music is Royalty-Free
 
@@ -75,6 +80,12 @@ skills/
 ├── mubert-manage/
 │   ├── SKILL.md
 │   └── references/
+├── mubert-audio-montage/
+│   └── SKILL.md
+├── tests/
+│   ├── README.md
+│   ├── lint_docs.py
+│   └── contract/
 └── evals/
     ├── mubert-setup/
     │   ├── evals.json

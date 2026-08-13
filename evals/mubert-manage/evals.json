@@ -9,7 +9,7 @@
         "The code sends a POST request to /api/v3/service/customers",
         "The request body includes 'custom_id' set to 'my-app-user-42'",
         "The request includes 'company-id' and 'license-token' headers",
-        "The code extracts access.id (customer-id) and access.token (access-token) from the response"
+        "The code extracts data.id as customer-id and data.access.token as access-token from the response"
       ]
     },
     {
@@ -66,7 +66,7 @@
     {
       "id": 7,
       "prompt": "Write a TypeScript script that creates a customer and then generates a track using the returned credentials",
-      "expected_output": "TypeScript code that first POSTs to /service/customers, extracts access.id and access.token, then POSTs to /public/tracks using those credentials",
+      "expected_output": "TypeScript code that first POSTs to /service/customers, extracts data.id and data.access.token, then POSTs to /public/tracks using those credentials",
       "assertions": [
         "The code is written in TypeScript",
         "The code first creates a customer via POST /api/v3/service/customers",
@@ -77,13 +77,45 @@
       ]
     },
     {
+      "id": 9,
+      "prompt": "I lost the access token for customer 'user-abc'. How do I get it back?",
+      "expected_output": "Look the customer up by custom ID (read-only) and read data.access.token; reposting the same custom_id also returns the identical token",
+      "assertions": [
+        "The answer retrieves the existing token rather than claiming it is unrecoverable",
+        "It uses GET /api/v3/service/customers/custom-id/user-abc (or POST /service/customers with the same custom_id) with company-id + license-token headers",
+        "It reads the token from data.access.token",
+        "It does not invent a token-refresh or regenerate endpoint"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Show me the usage limits for the customer with custom ID 'user-abc'",
+      "expected_output": "Code that reads data.access.customer_limits from a customer response",
+      "assertions": [
+        "The code reads the limits from data.access.customer_limits, nested inside access",
+        "The code does NOT read data.customer_limits (that key does not exist and raises KeyError)",
+        "The explanation notes that -1 means unlimited"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Write a Python webhook receiver for Mubert track-completion notifications",
+      "expected_output": "A handler that parses the request body as a JSON array of track objects and acts only on generations with status 'done'",
+      "assertions": [
+        "The handler treats the payload as a list/array of track objects, iterating over it",
+        "The handler does not index the payload as a single object (no payload['id'] on the top-level body)",
+        "The handler does not expect a 'data' wrapper on the webhook body",
+        "The handler only uses the generation url when status == 'done'"
+      ]
+    },
+    {
       "id": 8,
       "prompt": "I need to set up Mubert for my app — create a customer and give me the credentials to generate music",
       "expected_output": "Code that creates a customer via service API and clearly outputs the customer-id and access-token for use with generate/streaming skills",
       "assertions": [
         "The code creates a customer via POST /api/v3/service/customers",
-        "The response parsing clearly identifies access.id as customer-id",
-        "The response parsing clearly identifies access.token as access-token",
+        "The response parsing clearly identifies data.id as customer-id",
+        "The response parsing clearly identifies data.access.token as access-token",
         "The output explains these credentials are used for track generation and streaming"
       ]
     }

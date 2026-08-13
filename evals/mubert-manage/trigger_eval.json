@@ -1,26 +1,89 @@
 {
   "skill_name": "mubert-manage",
   "triggers": [
-    { "prompt": "create a new Mubert customer", "should_trigger": true },
-    { "prompt": "list all my Mubert customers", "should_trigger": true },
-    { "prompt": "delete customer cust-123", "should_trigger": true },
-    { "prompt": "get customer by custom ID user-abc", "should_trigger": true },
-    { "prompt": "list my Mubert licenses", "should_trigger": true },
-    { "prompt": "set up a webhook on my Mubert license", "should_trigger": true },
-    { "prompt": "configure a webhook URL for track notifications", "should_trigger": true },
-    { "prompt": "I need API credentials for Mubert", "should_trigger": true },
-    { "prompt": "how do I get a customer-id and access-token", "should_trigger": true },
-    { "prompt": "provision API access for users of my app", "should_trigger": true },
-    { "prompt": "set up Mubert for my application", "should_trigger": true },
-    { "prompt": "I don't have Mubert credentials yet", "should_trigger": true },
-    { "prompt": "generate a 30 second track from a text prompt", "should_trigger": false },
-    { "prompt": "create a lo-fi beat using Mubert", "should_trigger": false },
-    { "prompt": "remove drums from my track", "should_trigger": false },
-    { "prompt": "stream live music in my app", "should_trigger": false },
-    { "prompt": "get a streaming link for playlist P001", "should_trigger": false },
-    { "prompt": "change the stream intensity to low", "should_trigger": false },
-    { "prompt": "search for electronic tracks in the library", "should_trigger": false },
-    { "prompt": "browse tracks by BPM and genre", "should_trigger": false },
-    { "prompt": "what genres are available", "should_trigger": false }
+    {
+      "prompt": "create a new Mubert customer",
+      "should_trigger": true
+    },
+    {
+      "prompt": "list all my Mubert customers",
+      "should_trigger": true
+    },
+    {
+      "prompt": "delete customer cust-123",
+      "should_trigger": true
+    },
+    {
+      "prompt": "get customer by custom ID user-abc",
+      "should_trigger": true
+    },
+    {
+      "prompt": "list my Mubert licenses",
+      "should_trigger": true
+    },
+    {
+      "prompt": "set up a webhook on my Mubert license",
+      "should_trigger": true
+    },
+    {
+      "prompt": "configure a webhook URL for track notifications",
+      "should_trigger": true
+    },
+    {
+      "prompt": "I need API credentials for Mubert",
+      "should_trigger": false
+    },
+    {
+      "prompt": "how do I get a customer-id and access-token",
+      "should_trigger": false
+    },
+    {
+      "prompt": "provision API access for users of my app",
+      "should_trigger": true
+    },
+    {
+      "prompt": "set up Mubert for my application",
+      "should_trigger": false
+    },
+    {
+      "prompt": "I don't have Mubert credentials yet",
+      "should_trigger": false
+    },
+    {
+      "prompt": "generate a 30 second track from a text prompt",
+      "should_trigger": false
+    },
+    {
+      "prompt": "create a lo-fi beat using Mubert",
+      "should_trigger": false
+    },
+    {
+      "prompt": "remove drums from my track",
+      "should_trigger": false
+    },
+    {
+      "prompt": "stream live music in my app",
+      "should_trigger": false
+    },
+    {
+      "prompt": "get a streaming link for playlist 0.0.0",
+      "should_trigger": false
+    },
+    {
+      "prompt": "change the stream intensity to low",
+      "should_trigger": false
+    },
+    {
+      "prompt": "search for electronic tracks in the library",
+      "should_trigger": false
+    },
+    {
+      "prompt": "browse tracks by BPM and genre",
+      "should_trigger": false
+    },
+    {
+      "prompt": "what genres are available",
+      "should_trigger": false
+    }
   ]
 }

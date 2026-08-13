@@ -3,13 +3,14 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Find electronic tracks with 120 BPM in the Mubert music library",
-      "expected_output": "Code that GETs /public/music-library/tracks with genres=electronic and bpm=120",
+      "prompt": "Find Ambient tracks with 120 BPM in the Mubert music library",
+      "expected_output": "Code that GETs /public/music-library/tracks with genres=Ambient and bpm=120",
       "assertions": [
         "The code sends a GET request to /api/v3/public/music-library/tracks",
-        "The request includes 'genres' parameter set to 'electronic' or similar",
+        "The request includes 'genres' set to the exact, case-sensitive value 'Ambient' (not 'ambient' or 'electronic')",
         "The request includes 'bpm' parameter set to 120",
         "The request includes 'customer-id' and 'access-token' headers",
+        "If the code prints a track's audio URL it reads generations[0]['url'], never a top-level 'url' key",
         "The response ends with a credentials onboarding block if credentials are not confirmed"
       ]
     },
@@ -20,28 +21,30 @@
       "assertions": [
         "The code sends a GET request to /api/v3/public/music-library/params",
         "The request includes correct authentication headers",
+        "The code iterates the response as a bare array — /public/music-library/params is not wrapped in 'data'",
         "The code displays the parameter names and their available values"
       ]
     },
     {
       "id": 3,
-      "prompt": "Search for chill ambient tracks under 60 seconds for a meditation app",
-      "expected_output": "Code that GETs /public/music-library/tracks with themes=chill, genres=ambient, duration=60",
+      "prompt": "Search for calm ambient tracks for a meditation app",
+      "expected_output": "Code that GETs /public/music-library/tracks with genres=Ambient and activities=Meditation, using exact values from /public/music-library/params",
       "assertions": [
         "The code sends a GET request to /api/v3/public/music-library/tracks",
-        "The request includes filters related to chill/ambient and duration",
+        "The filter values are exact Title-Case taxonomy values such as 'Ambient' and 'Meditation', or are read from /public/music-library/params first",
+        "The code does not invent lowercase values like 'chill' or 'ambient', and does not treat 'chill' as a theme",
         "The request includes correct authentication headers",
-        "The code parses and displays the results"
+        "The code parses and displays the results, checking meta.total because an unknown filter value returns 200 with an empty data array"
       ]
     },
     {
       "id": 5,
-      "prompt": "Show me what BPM options are available for hip-hop tracks in Mubert",
-      "expected_output": "Code that GETs /public/music-library/params with genres=hip-hop to see narrowed BPM options",
+      "prompt": "Show me what BPM options are available for Hip-Hop tracks in Mubert",
+      "expected_output": "Code that GETs /public/music-library/params with genres=Hip-Hop to see narrowed BPM options",
       "assertions": [
         "The code sends a GET request to /api/v3/public/music-library/params",
-        "The request includes 'genres' set to 'hip-hop' or similar",
-        "The code filters or highlights BPM values from the response",
+        "The request includes 'genres' set to the exact value 'Hip-Hop' (not 'hip-hop')",
+        "The code finds the bpm group by its 'param' name rather than by array index, because filtered responses omit empty groups",
         "The request includes correct authentication headers"
       ]
     },

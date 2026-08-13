@@ -14,7 +14,7 @@
     { "prompt": "generate royalty-free background music for a video", "should_trigger": true },
     { "prompt": "make me an AI music track for my podcast intro", "should_trigger": true },
     { "prompt": "stream live music in my fitness app", "should_trigger": false },
-    { "prompt": "get a streaming link for playlist P001", "should_trigger": false },
+    { "prompt": "get a streaming link for playlist 0.0.0", "should_trigger": false },
     { "prompt": "change the stream intensity to low", "should_trigger": false },
     { "prompt": "search for electronic tracks in the music library", "should_trigger": false },
     { "prompt": "what genres are available in the Mubert library", "should_trigger": false },
