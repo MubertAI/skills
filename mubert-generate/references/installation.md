@@ -23,7 +23,7 @@ curl -X POST "https://music-api.mubert.com/api/v3/service/customers" \
   -d '{"custom_id": "my-app-user-1"}'
 ```
 
-The response contains `access.id` (customer-id) and `access.token` (access-token) for public endpoint usage.
+From the response take `data.id` as the `customer-id` header and `data.access.token` as the `access-token` header. `data.access.id` is the access-token record's own ID and is rejected with `401` if sent as `customer-id`.
 
 ## Python
 

@@ -31,7 +31,8 @@
         "The response asks for company-id and license-token",
         "The code generates a provisioning module/function that creates customers dynamically",
         "The provisioning code calls POST /service/customers with a user identifier",
-        "The provisioning code handles existing customers via GET /service/customers/custom-id/{id}",
+        "The provisioning code treats POST /service/customers as idempotent (re-posting an existing custom_id returns the same customer and the same access token), or looks an existing customer up with GET /service/customers/custom-id/{custom_id}",
+        "The provisioning code sanitises the app's user id into a valid custom_id (^[a-zA-Z0-9._@-]+$, 1-255 characters)",
         "Only MUBERT_COMPANY_ID and MUBERT_LICENSE_TOKEN are saved to .env (not customer credentials)"
       ]
     },

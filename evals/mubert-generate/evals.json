@@ -15,15 +15,16 @@
     },
     {
       "id": 2,
-      "prompt": "Create an energetic 60-second track from playlist P001 in WAV format at 320kbps",
-      "expected_output": "Code that POSTs to /public/tracks with playlist_index='P001', duration=60, format='wav', bitrate=320, intensity='high'",
+      "prompt": "Create an energetic 60-second track from playlist 6.1.1 in WAV format at 320kbps",
+      "expected_output": "Code that POSTs to /public/tracks with playlist_index='6.1.1', duration=60, format='wav', bitrate=320, intensity='high'",
       "assertions": [
         "The code sends a POST request to /api/v3/public/tracks",
-        "The request body includes 'playlist_index' set to 'P001'",
+        "The request body includes 'playlist_index' set to '6.1.1'",
         "The request body includes 'duration' set to 60",
         "The request body includes 'format' set to 'wav'",
         "The request body includes 'bitrate' set to 320",
-        "The request includes correct authentication headers"
+        "The request includes correct authentication headers",
+        "The response does not claim the playlist index can be shortened to '6.1' or '6' to blend channels"
       ]
     },
     {
@@ -35,7 +36,9 @@
         "The request body uses 'delete_instruments' or 'delete_stems'",
         "The deletion list includes DRUMS (or the DRUMS stem)",
         "The deletion list includes VOCALS",
-        "The request includes correct authentication headers"
+        "The request includes correct authentication headers",
+        "The instrument or stem names are UPPERCASE",
+        "The code keeps the track returned by the edit call (a new id) rather than discarding the response, or the answer states that /edit returns a new track and leaves abc-123 unchanged"
       ]
     },
     {
@@ -47,7 +50,8 @@
         "The request body uses 'replace_instruments' or 'replace_stems'",
         "The replacement list includes BASS",
         "The replacement list includes LEADS",
-        "The request includes correct authentication headers"
+        "The request includes correct authentication headers",
+        "If the code polls for the finished audio, it polls the id returned by the edit response, not xyz-456"
       ]
     },
     {
@@ -56,9 +60,10 @@
       "expected_output": "Code that POSTs to /public/tracks/abc-123/similar with duration=45 and mode='loop'",
       "assertions": [
         "The code sends a POST request to /api/v3/public/tracks/abc-123/similar",
-        "The request body includes 'duration' set to 45",
+        "The request body includes 'duration' set to 45 (duration is required on /similar)",
         "The request body includes 'mode' set to 'loop'",
-        "The request includes correct authentication headers"
+        "The request includes correct authentication headers",
+        "The code keeps the returned track, or the answer states that /similar returns a new track id and leaves abc-123 unchanged"
       ]
     },
     {
@@ -101,7 +106,8 @@
         "The code is written in TypeScript",
         "The code sends a POST to /api/v3/public/tracks to create the track",
         "The code sends GET requests to /api/v3/public/tracks/{id} to poll status",
-        "The code checks the generation status field before returning",
+        "The code treats \"done\" as the ready status, or resolves on the presence of a non-empty generation url",
+        "The polling loop is bounded by a timeout",
         "The code includes correct authentication headers in all requests"
       ]
     }

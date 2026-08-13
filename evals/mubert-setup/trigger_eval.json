@@ -16,7 +16,7 @@
     { "prompt": "generate a 30 second track using Mubert", "should_trigger": false },
     { "prompt": "create a lo-fi beat", "should_trigger": false },
     { "prompt": "stream live music in my app", "should_trigger": false },
-    { "prompt": "get a streaming link for playlist P001", "should_trigger": false },
+    { "prompt": "get a streaming link for playlist 0.0.0", "should_trigger": false },
     { "prompt": "search for electronic tracks in the library", "should_trigger": false },
     { "prompt": "list available Mubert playlists", "should_trigger": false },
     { "prompt": "list my Mubert customers", "should_trigger": false },
