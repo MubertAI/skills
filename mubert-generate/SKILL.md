@@ -17,6 +17,15 @@ metadata:
 
 Generate royalty-free AI music tracks via the Mubert Music API v3 — from text prompts, images, or playlists. Edit tracks by replacing/deleting instruments and stems.
 
+> **Is the Mubert Music MCP server connected?** If tools named `get_capabilities`,
+> `generate_track`, `search_library`, `start_stream` are available and the user wants
+> *music* — a track, a loop, a stream, background audio — follow the **mubert-music-mcp**
+> skill and call those tools instead of writing HTTP: they already know what the license
+> allows and what quota is left. This skill is for the other case: **writing code** that calls
+> the Mubert API from the user's own product. Even then, if the server is connected, call
+> `get_capabilities` first and put its real bitrates, formats, modes and max duration into
+> the snippet instead of guessing.
+
 All music generated through the Mubert API is **royalty-free** and cleared for commercial use. You can integrate it directly into your apps, games, videos, podcasts, social media content, and any other projects without worrying about copyright claims or additional licensing fees.
 
 ## Use Cases
