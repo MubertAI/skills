@@ -15,7 +15,16 @@ metadata:
 
 # Mubert Music Library
 
-Browse and search the Mubert pre-made royalty-free music library — filter by genres, moods, themes, activities, instruments, key, BPM, and duration. Discover playlists and channels for use with track generation and streaming.
+Browse and search the Mubert pre-made royalty-free music library — filter by genres, moods, themes, activities, instruments, key, BPM, and duration. This skill covers the pre-made catalogue only. **Playlists are not here** — `playlist_index` values for generation or streaming come from `GET /public/playlists`, documented in **mubert-generate** and **mubert-streaming**.
+
+> **Is the Mubert Music MCP server connected?** If tools named `get_capabilities`,
+> `generate_track`, `search_library`, `get_library_filters` are available and the user wants
+> *music* — a track, a loop, a stream, background audio — follow the **mubert-music-mcp**
+> skill and call those tools instead of writing HTTP: they already know what the license
+> allows and what quota is left. This skill is for the other case: **writing code** that calls
+> the Mubert API from the user's own product. Even then, if the server is connected, call
+> `get_capabilities` first and put its real bitrates, formats, modes and max duration into
+> the snippet instead of guessing.
 
 All library tracks are **royalty-free** and cleared for commercial use. Use them directly in your apps, games, videos, podcasts, and any other projects without copyright concerns.
 

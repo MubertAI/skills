@@ -17,6 +17,13 @@ metadata:
 
 Manage licenses, customers, and webhooks via the Mubert Music API v3 service endpoints. Mubert provides royalty-free AI-generated music — use these endpoints to provision access for your users so they can generate and stream music within your app without any copyright concerns.
 
+> **Is the Mubert Music MCP server connected?** It exposes `provision_customer`,
+> `list_customers` and `delete_customer` with seat checks built in, and provisions a customer
+> for itself automatically — so if the user just wants access for one of their users right
+> now, follow the **mubert-music-mcp** skill and call those tools. This skill is for
+> **writing code** that manages licenses, customers and webhooks from the user's own backend,
+> which runs without that server.
+
 These endpoints require company-level credentials (`company-id` + `license-token`).
 
 > **Setup:** See [Installation Guide](references/installation.md) for credentials.

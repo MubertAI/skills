@@ -11,6 +11,12 @@ metadata:
 
 This skill walks users through obtaining, validating, and storing Mubert Music API credentials.
 
+> **Is the Mubert Music MCP server connected?** The hosted server needs only `company-id` and
+> `license-token`, passed as request headers, and provisions the customer itself — no
+> `customer-id`/`access-token` to obtain or store. If the user is connecting an MCP client
+> rather than writing code, point them at the **mubert-music-mcp** skill's connection section
+> and skip Step 5 and Step 7 below (customer creation). This skill is for **code** that calls the API directly.
+
 ## Step 1: Check Existing Credentials
 
 Before requesting new keys, check if credentials already exist:

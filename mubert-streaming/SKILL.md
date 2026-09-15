@@ -17,6 +17,15 @@ metadata:
 
 Stream real-time royalty-free AI-generated music via the Mubert Music API v3 — get streaming links, control intensity, toggle loop mode, and restart streams on the fly.
 
+> **Is the Mubert Music MCP server connected?** If tools named `get_capabilities`,
+> `start_stream`, `set_stream_intensity`, `restart_stream` are available and the user wants
+> *music* — a track, a loop, a stream, background audio — follow the **mubert-music-mcp**
+> skill and call those tools instead of writing HTTP: they already know what the license
+> allows and what quota is left. This skill is for the other case: **writing code** that calls
+> the Mubert API from the user's own product. Even then, if the server is connected, call
+> `get_capabilities` first and put its real bitrates, formats, modes and max duration into
+> the snippet instead of guessing.
+
 All streamed music is **royalty-free** and cleared for commercial use. Embed live AI-generated music directly into your apps, games, fitness platforms, meditation tools, interactive experiences, or any product that needs an endless, non-repeating soundtrack.
 
 > **Security — the streaming link is a credential.** The URL returned by `get-link` carries your
