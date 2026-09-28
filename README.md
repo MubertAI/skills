@@ -12,6 +12,15 @@ Agent Skills for the [Mubert Music API v3](https://mubert.com/api) — royalty-f
 | [mubert-library](mubert-library/) | Browse and filter the pre-made music library by genre, theme, BPM, activity |
 | [mubert-manage](mubert-manage/) | Manage licenses, customers, and webhooks (service-level administration) |
 
+## MCP servers
+
+When one of these servers is connected, its skill tells the agent how to use the tools; the raw-API skills above stay the right choice for writing code that calls the Mubert API.
+
+| Skill | Server | For |
+|-------|--------|-----|
+| [mubert-music-mcp](mubert-music-mcp/) | `https://mcp.mubert.com/mcp` | Generate, edit and stream royalty-free music; search the library |
+| [cast-mcp](cast-mcp/) | `https://cast-mcp.mubert.com/mcp` | Turn a raw podcast recording into a finished episode with [Mubert Cast](https://mubert.com/tools/cast): transcript, filler and pause removal, voice enhancement, music with auto-ducking, chapters, export |
+
 ## Installation
 
 ```bash
@@ -81,6 +90,10 @@ skills/
 │   ├── SKILL.md
 │   └── references/
 ├── mubert-audio-montage/
+│   └── SKILL.md
+├── mubert-music-mcp/
+│   └── SKILL.md
+├── cast-mcp/
 │   └── SKILL.md
 ├── tests/
 │   ├── README.md
